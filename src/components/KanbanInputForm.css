@@ -1,0 +1,10 @@
+.kanbanInputForm{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.inputForm{
+    width: 40rem;
+}

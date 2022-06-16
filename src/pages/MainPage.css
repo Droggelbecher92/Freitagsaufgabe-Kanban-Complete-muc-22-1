@@ -1,0 +1,5 @@
+.mainPage{
+    text-align: center;
+    display: grid;
+    grid-template-rows: 1fr 1.5fr 7fr;
+}

@@ -1,3 +1,5 @@
+import './KanbanCard.css'
+
 export default function KanbanCard(){
     return(
         <div className={'kanbanCard'}>

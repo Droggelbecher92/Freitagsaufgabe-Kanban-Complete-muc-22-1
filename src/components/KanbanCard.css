@@ -1,0 +1,6 @@
+.kanbanCard{
+    background-color: burlywood;
+    border-radius: 7px;
+    margin: 0 1rem;
+    box-shadow: 5px 5px 5px 1px darkred;
+}
