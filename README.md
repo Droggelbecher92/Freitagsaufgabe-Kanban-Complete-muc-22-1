@@ -49,3 +49,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 01:19:00 Ende Input form
 01:35:00 Get all items und Ladespinner gedöns
 01:48:00 Daten vom server werden angezeigt
+02:05:00 Delete fertig

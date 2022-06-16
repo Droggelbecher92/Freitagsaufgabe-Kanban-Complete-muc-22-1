@@ -26,7 +26,7 @@ export default function MainPage(){
             <KanbanInputForm onCreation={reload}/>
             {
                 allTasks ?
-                    <KanbanGallery kanbans={allTasks}/>
+                    <KanbanGallery kanbans={allTasks} changeHandler={reload}/>
                     :
                     <Loading/>
             }
