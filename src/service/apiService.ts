@@ -1,5 +1,5 @@
 import axios from "axios";
-import {NewKanbanItem} from "./models";
+import {KanbanItem, NewKanbanItem} from "./models";
 
 export const postNewKanban = (item : NewKanbanItem) => {
     return axios.post("/api/kanban", item)
@@ -13,5 +13,10 @@ export const getAllKanban = () => {
 
 export const deleteKanban = (id:string)=>{
     return axios.delete(`/api/kanban/${id}`)
+        .then(response => response.data)
+}
+
+export const putKanbanStatus = (direction:string,item:KanbanItem)=>{
+    return axios.put(`/api/kanban/${direction}`,item)
         .then(response => response.data)
 }

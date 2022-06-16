@@ -1,6 +1,6 @@
 import './KanbanCard.css'
 import {KanbanItem, KanbanStatus} from "../service/models";
-import {deleteKanban} from "../service/apiService";
+import {deleteKanban, putKanbanStatus} from "../service/apiService";
 
 interface KanbanCardProps{
     infos : KanbanItem
@@ -14,7 +14,10 @@ export default function KanbanCard({infos, changeHandler}:KanbanCardProps){
             .then(() => changeHandler())
     }
 
-
+    const changeStatus = (direction : string) => {
+        putKanbanStatus(direction,infos)
+            .then(()=>changeHandler())
+    }
 
     return(
         <div className={'kanbanCard'}>
@@ -24,14 +27,14 @@ export default function KanbanCard({infos, changeHandler}:KanbanCardProps){
                 infos.status===KanbanStatus.OPEN?
                     <button onClick={handleDelete}>delete</button>
                     :
-                    <button>prev</button>
+                    <button onClick={()=>changeStatus('prev')}>prev</button>
             }
             <button>edit</button>
             {
                 infos.status===KanbanStatus.DONE?
                     <button>delete</button>
                     :
-                    <button>next</button>
+                    <button onClick={()=>changeStatus('next')}>next</button>
             }
         </div>
     )
