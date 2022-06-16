@@ -1,6 +1,7 @@
 import './KanbanCard.css'
 import {KanbanItem, KanbanStatus} from "../service/models";
 import {deleteKanban, putKanbanStatus} from "../service/apiService";
+import {useNavigate} from "react-router-dom";
 
 interface KanbanCardProps{
     infos : KanbanItem
@@ -8,6 +9,8 @@ interface KanbanCardProps{
 }
 
 export default function KanbanCard({infos, changeHandler}:KanbanCardProps){
+
+    const nav = useNavigate()
 
     const handleDelete = () => {
         deleteKanban(infos.id)
@@ -29,7 +32,7 @@ export default function KanbanCard({infos, changeHandler}:KanbanCardProps){
                     :
                     <button onClick={()=>changeStatus('prev')}>prev</button>
             }
-            <button>edit</button>
+            <button onClick={()=> nav(`edit/${infos.id}`)}>edit</button>
             {
                 infos.status===KanbanStatus.DONE?
                     <button>delete</button>

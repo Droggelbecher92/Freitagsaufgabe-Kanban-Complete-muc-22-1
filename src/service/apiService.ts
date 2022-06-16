@@ -20,3 +20,13 @@ export const putKanbanStatus = (direction:string,item:KanbanItem)=>{
     return axios.put(`/api/kanban/${direction}`,item)
         .then(response => response.data)
 }
+
+export const getKanbanById = (id : string) => {
+    return axios.get(`/api/kanban/${id}`)
+        .then(response => response.data)
+}
+
+export const putUpdatedKanban = (item : KanbanItem) =>{
+    return axios.put(`/api/kanban`,item)
+        .then(response => response.data)
+}
