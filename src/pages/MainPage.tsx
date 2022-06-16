@@ -11,15 +11,19 @@ export default function MainPage(){
 
     const [allTasks, setAllTasks] = useState<KanbanItem[]>()
 
-    useEffect(()=>{
+    const reload = () => {
         getAllKanban()
             .then(data => setAllTasks(data))
+    }
+
+    useEffect(()=>{
+        reload()
     },[])
 
     return(
         <div className={'mainPage'}>
             <Headline/>
-            <KanbanInputForm/>
+            <KanbanInputForm onCreation={reload}/>
             {
                 allTasks ?
                     <KanbanGallery kanbans={allTasks}/>

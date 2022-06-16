@@ -3,7 +3,12 @@ import {FormEvent, useEffect, useState} from "react";
 import {KanbanStatus} from "../service/models";
 import {postNewKanban} from "../service/apiService";
 
-export default function KanbanInputForm(){
+
+interface KanbanInputFormProps{
+    onCreation : () => void
+}
+
+export default function KanbanInputForm(props : KanbanInputFormProps){
 
     const [task, setTask] = useState(localStorage.getItem('task')??'')
     const [desc, setDesc] = useState(localStorage.getItem('desc')??'')
@@ -22,6 +27,7 @@ export default function KanbanInputForm(){
             .then(()=>{
                 setDesc('')
                 setTask('')
+                props.onCreation()
             })
     }
 
