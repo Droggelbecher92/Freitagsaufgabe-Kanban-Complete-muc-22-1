@@ -36,7 +36,7 @@ export default function EditForm(){
                     <br/>
                     <input type="text" placeholder={'Neue Task Beschreibung'} value={desc} onChange={ev => setDesc(ev.target.value)}/>
                     <br/>
-                    <button type={'submit'}>Save</button>
+                    {task && desc && <button type={'submit'}>Save</button>}
                 </form>
                 :
                 <Loading/>

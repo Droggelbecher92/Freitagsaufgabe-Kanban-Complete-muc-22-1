@@ -35,7 +35,7 @@ export default function KanbanInputForm(props : KanbanInputFormProps){
         <form className={'kanbanInputForm'} onSubmit={saveNewKanban}>
             <input className={'inputForm'} type="text" placeholder={'Neuer Task'} value={task} onChange={ev => setTask(ev.target.value)}/>
             <input className={'inputForm'} type="text" placeholder={'Beschreibung'} value={desc} onChange={ev => setDesc(ev.target.value)}/>
-            <button type={'submit'}>Save</button>
+            {task && desc && <button type={'submit'}>Save</button>}
         </form>
     )
 }
