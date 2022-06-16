@@ -22,7 +22,7 @@ export default function MainPage(){
             <KanbanInputForm/>
             {
                 allTasks ?
-                    <KanbanGallery/>
+                    <KanbanGallery kanbans={allTasks}/>
                     :
                     <Loading/>
             }

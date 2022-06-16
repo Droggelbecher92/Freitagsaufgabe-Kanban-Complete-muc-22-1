@@ -1,11 +1,18 @@
 import KanbanCard from "./KanbanCard";
+import {KanbanItem} from "../service/models";
 
-export default function KanbanColumn(){
+interface KanbanColumnProps{
+    filteredItems: KanbanItem[],
+    status : string,
+}
+
+export default function KanbanColumn(props : KanbanColumnProps){
     return(
         <div className={'kanbanColumn'}>
-            <h3>Status</h3>
-            <KanbanCard/>
-            <KanbanCard/>
+            <h3>{props.status}</h3>
+            {props.filteredItems.map(card =>
+                <KanbanCard key={card.id} infos={card}/>
+            )}
         </div>
     )
 }
